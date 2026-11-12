@@ -6,6 +6,8 @@ dataset:
     - grid
     - metal_nut
     - screw
+  validation_ratio: 0.2
+  random_seed: 42
 
 preprocess:
   image_size: 256
