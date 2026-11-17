@@ -1,0 +1,29 @@
+dataset:
+  name: mvtec_ad
+  root: data/mvtec_ad
+  categories: [carpet, grid, metal_nut, screw]
+  validation_ratio: 0.2
+  random_seed: 42
+preprocess:
+  image_size: 256
+  grayscale: true
+patch:
+  sizes: [64, 128, 256]
+  stride: 32
+features:
+  lbp: true
+  hog: true
+  gray_statistics: true
+  gradient_statistics: true
+  pca: false
+models: [iforest, ocsvm, knn]
+evaluation:
+  threshold_source: normal_validation
+localization:
+  method: metric_covariance
+  patch_size: 64
+  stride: 32
+  pixel_quantile: 0.995
+  image_quantile: 0.99
+  image_top_fraction: 0.01
+  n_estimators: 100

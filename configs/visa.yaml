@@ -1,0 +1,39 @@
+dataset:
+  name: visa
+  root: data/visa
+  categories: [candle, capsules, cashew, chewinggum, fryum, macaroni1, macaroni2, pcb1, pcb2, pcb3, pcb4, pipe_fryum]
+  validation_ratio: 0.2
+  random_seed: 42
+preprocess:
+  image_size: 256
+  grayscale: true
+
+patch:
+  sizes:
+    - 64
+    - 128
+    - 256
+  stride: 32
+
+features:
+  lbp: true
+  hog: true
+  gray_statistics: true
+  gradient_statistics: true
+  pca: false
+
+models:
+  - iforest
+  - ocsvm
+  - knn
+
+evaluation:
+  threshold_source: normal_validation
+
+localization:
+  patch_size: 64
+  stride: 32
+  pixel_quantile: 0.995
+  image_quantile: 0.99
+  image_top_fraction: 0.01
+  n_estimators: 100

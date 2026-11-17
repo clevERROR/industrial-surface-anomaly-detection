@@ -1,0 +1,13 @@
+# 本地环境、数据与运行产物不提交。
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+data/*
+runs/
+results/
+experiments/
+logs/
+*.log
